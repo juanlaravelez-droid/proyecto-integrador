@@ -55,7 +55,12 @@ h1 {
     color: #2d6a4f;
     margin-bottom: .8rem;
 }
-
+#btn_cotizacion {
+  position: absolute;
+  top: 43%; /* Vertical: arriba */
+  left: 85%; /* Horizontal: izquierda */
+  transform: translate(-50%, -50%); /* Centra el botón perfectamente */
+}
 h2 {
     color: #2d6a4f;
     margin-bottom: 20px;
