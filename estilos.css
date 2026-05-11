@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e1f7f4;
+}
+
+h1 {
+    font-family: 'Anton regular', 'Archivo Black', sans-serif;
+    font-size: 2rem;
+    color: #2d6a4f;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+#logo {
+    width: 150px;
+    height: auto;
+    margin: 20px;
+}
+#servicios {
+    font: bold 25px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    gap: 20px;        
+    padding: 20px;    
+}
+#contacto h2 {
+    text-align: center;
+    font-size: 30px;
+}
+
+.kit {
+    flex-wrap: nowrap;
+    background-color: #c0d0c9;
+    text-align: center;
+    padding: 20px;
+    padding-inline: 10px;
+    border-color: #047456;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+#catalogo {
+    padding: 10px;
+    font-size: .75rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #2d6a4f;
+    margin-bottom: .8rem;
+}
+
+h2 {
+    color: #2d6a4f;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+#menu {
+    width: 100%;
+    border-radius: 3px;
+    background-color:  #2d6a4f;
+
+}
+
+#menu ul {
+    list-style: none;
+    margin: 2px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#menu ul li {
+    flex: 1;
+    text-align: center;
+}
+
+#menu ul li a {
+    display: block;
+    padding: 10px 0;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+}
+
+#menu ul li a:hover {
+    background-color: #034425;
+}
+
+fieldset {
+    background-color: #2d6a4f55;
+    border: 2px solid #2d6a4f;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 40%;
+}
+
+fieldset legend {
+    font-size: 1.5rem;
+    color: #2d6a4f;
+    padding: 0 10px;
+}
+
+fieldset li {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #2d6a4f;
+}
+
+button {
+    background-color: #2d6a4f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    color: #2d6a4f;
+}
+
+#contacto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+video {
+    border: 2px solid #2d6a4f;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.contacto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
