@@ -6,9 +6,97 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #e1f7f4;
+    background-color: #d7fae0;
+
+
 }
 
+ /* Tarjetas de stats */
+    .stats-row { display: flex; gap: 1rem; justify-content: center; }
+    .stat-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 0.9rem 1.4rem;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+    .stat-card .num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--blanco);
+    }
+    .stat-card .lbl {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .panel-header {
+    background: #034425;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0.5rem 0.5rem;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .eff-badge {
+    display: inline-block;
+    background: #e6f4ec;
+    color: #1a5c33;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 3px 14px;
+    margin-top: 2px;
+  }
+  .icon-solar {
+    font-size: 38px;
+    margin-bottom: 6px;
+    display: block;
+  }
+    
+  .panel-contenido { position: relative; z-index: 1; text-align: center; }
+.panel-izquierdo {
+      width: 55%;
+      background: linear-gradient(155deg, var(--verde-principal) 0%, var(--verde-claro) 100%);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem;
+      overflow: hidden;
+    }
+
+    /* Círculos decorativos de fondo */
+    .panel-izquierdo::before {
+      content: '';
+      position: absolute;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.08);
+      top: -80px; left: -80px;
+    }
+    .panel-izquierdo::after {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.08);
+      bottom: -60px; right: -60px;
+    }
+
+    .panel-circulo-extra {
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.06);
+      bottom: 80px; left: 40px;
+    }
 h1 {
     font-family: 'Anton regular', 'Archivo Black', sans-serif;
     font-size: 2rem;
@@ -22,7 +110,16 @@ h1 {
     height: auto;
     margin: 20px;
 }
+#btn-verde {
+  background-color: #034002;
+  color: white;
+  border-color: #034002;
+}
 
+.btn-verde:hover {
+  background-color: #022901;
+  border-color: #022901;
+}
 #servicios {
     font: bold 25px;
     display: flex;
@@ -33,24 +130,17 @@ h1 {
 }
 
 .kit:hover {
-    border-color: #000000;
+    border-color: #034002;
 }
-
-#contacto h2 {
-    text-align: center;
-    font-size: 30px;
-    flex-wrap: wrap;
-}
-
 .contacto {
-    display: flex;
+    display:flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     padding: 20px;
 }
 
-.kit {
+.tarjeta {
     flex-wrap: wrap;
     background-color: #c0d0c9;
     text-align: center;
@@ -60,14 +150,25 @@ h1 {
     border-width: 2px;
     border-style: solid;
     border-radius: 10px;
-}
 
+}
+.card-body {
+      flex-wrap: wrap;
+    background-color: #c0d0c9;
+    text-align: center;
+    padding: 20px;
+    padding-inline: 10px;
+    border-color: #047456;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+}
 @media (max-width: 450px) {
     #servicios {
         flex-direction: column;
     }
 
-    .kit {
+    .card {
         width: 100%;
     }
     .contacto{
@@ -79,7 +180,7 @@ h1 {
 }
 
 #catalogo {
-    padding: 10px;
+    padding: 5px;
     font-size: .75rem;
     letter-spacing: .12em;
     text-transform: uppercase;
@@ -90,6 +191,7 @@ h1 {
 #btn_cotizacion {
     position: absolute;
     top: 43%;
+    border-radius: 10px;
     /* Vertical: arriba */
     left: 85%;
     /* Horizontal: izquierda */
@@ -101,7 +203,6 @@ h2 {
     color: #2d6a4f;
     margin-bottom: 20px;
     text-align: center;
-    padding: 20px 10px;
 }
 
 #menu {
@@ -137,16 +238,34 @@ h2 {
 #menu ul li a:hover {
     background-color: #034425;
 }
-
-fieldset {
+#icono {
+    color: #c0d0c9;
+    width: 50px;
+    height: auto;
+    margin-left: 5px;
+}
+ffieldset {
     background-color: #2d6a4f55;
+    border: 2px solid #2d6a4f;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 100%; /* ✅ cambia 40% por 100% */
+}
+#form {
+   background-color: #2d6a4f55;
     border: 2px solid #2d6a4f;
     border-radius: 10px;
     padding: 20px;
     margin: 20px auto;
     width: 40%;
 }
-
+#form-control {
+    color: #2d6a4f;
+    border: 1px solid #216647;
+    border-radius: 5px;
+}
+ 
 fieldset legend {
     font-size: 1.5rem;
     color: #2d6a4f;
@@ -176,16 +295,29 @@ label {
     font-size: 1.2rem;
     color: #2d6a4f;
 }
-
-
 video {
+    width: 100%;
+    height: auto;
     border: 2px solid #2d6a4f;
     padding: 20px;
     max-width: 500px;
     border-radius: 10px;
 }
 
-
 #email:valid {
     background-color: rgb(4, 30, 34);
 }
+input:user-valid {
+  border: 2px solid rgb(0, 128, 73);
+  border-radius: 3px;
+}
+
+input:user-valid + span::before {
+  content: "✓";
+  color: green;
+}
+input:invalid {
+  border: 2px solid rgb(255, 0, 0);
+  border-radius: 3px;
+}
+
