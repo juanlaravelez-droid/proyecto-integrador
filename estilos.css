@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #d7fae0;
+
 
 
 }
@@ -15,11 +15,12 @@ body {
     .stats-row { display: flex; gap: 1rem; justify-content: center; }
     .stat-card {
       background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
+      /*border: 1px solid rgba(255,255,255,0.2);*/
       border-radius: 12px;
       padding: 0.9rem 1.4rem;
       text-align: center;
       backdrop-filter: blur(4px);
+   
     }
     .stat-card .num {
       font-family: 'Montserrat', sans-serif;
@@ -139,7 +140,6 @@ h1 {
     align-items: center;
     padding: 20px;
 }
-
 .tarjeta {
     flex-wrap: wrap;
     background-color: #c0d0c9;
@@ -150,35 +150,16 @@ h1 {
     border-width: 2px;
     border-style: solid;
     border-radius: 10px;
-
 }
 .card-body {
-      flex-wrap: wrap;
-    background-color: #c0d0c9;
+    flex-wrap: wrap;
+    background-color: #add7c5;
     text-align: center;
     padding: 20px;
     padding-inline: 10px;
-    border-color: #047456;
     border-width: 1px;
-    border-style: solid;
-    border-radius: 10px;
+    border-radius: 9px 9px 10px 10px;
 }
-@media (max-width: 450px) {
-    #servicios {
-        flex-direction: column;
-    }
-
-    .card {
-        width: 100%;
-    }
-    .contacto{
-        flex-direction: column;
-    }
-    label {
-       color: aqua;
-    }
-}
-
 #catalogo {
     padding: 5px;
     font-size: .75rem;
