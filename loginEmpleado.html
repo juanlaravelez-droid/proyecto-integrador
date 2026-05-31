@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&display=swap" rel="stylesheet">
+  <title>luma verde</title>
+</head>
+
+<body>
+  <div id="inicio">
+    <div id="banner">
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/banner1.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/banner2.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/banner3.png" class="d-block w-100" alt="...">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h1>Ilumina tu hogar
+        con el poder del
+        sol</h1>
+    </div>
+    <div class="panel-izquierdo">
+      <div class="panel-circulo-extra"></div>
+      <i class="bi bi-sun sol-icono"></i>
+
+      <div class="panel-contenido">
+        <div class="panel-logo">
+          <i class="bi bi-lightning-charge-fill"></i>
+        </div>
+        <p class="panel-subtitulo">
+          Sistema de gestión de inventario y ventas<br>
+          de paneles solares. Energía limpia, control total.
+        </p>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="num">+320</div>
+            <div class="lbl">Clientes</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">98%</div>
+            <div class="lbl">Satisfacción</div>
+          </div>
+          <div class="stat-card">
+            <div class="num">500 kW</div>
+            <div class="lbl">Instalados</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <fieldset class="panel-derecho">
+      <div class="login-box">
+
+        <div class="login-encabezado">
+          <h2>Bienvenido de vuelta</h2>
+          <p>Inicia sesión para acceder al sistema</p>
+        </div>
+
+        <div class="bg-grid"></div>
+        <div class="bg-glow"></div>
+
+        <div class="wrapper">
+          <!-- Panel formulario -->
+          <div class="panel-form">
+            <div class="form-header">
+              <div class="rol-chip">🧑‍💼 Acceso Empleado</div>
+              <h2>Panel Interno</h2>
+              <p>Ingresa tus credenciales corporativas</p>
+            </div>
+
+            <div class="form-group">
+              <label for="usuario">ID de empleado</label>
+              <div class="input-wrap">
+                <span class="icon">🪪</span>
+                <input type="text" id="usuario" placeholder="EMP-00123" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="area">Área / Departamento</label>
+              <div class="select-wrap">
+                <select id="area">
+                  <option value="" disabled selected>Selecciona tu área</option>
+                  <option>Ventas</option>
+                  <option>Instalaciones</option>
+                  <option>Inventario</option>
+                  <option>Administración</option>
+                  <option>Soporte Técnico</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="pass">Contraseña</label>
+              <div class="input-wrap">
+                <span class="icon">🔒</span>
+                <input type="password" id="pass" placeholder="••••••••" />
+              </div>
+            </div>
+
+            <div class="row-extra">
+              <a href="#" class="link-forgot">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <button class="btn-login">Ingresar al sistema</button>
+          </div>
+
+          <!-- Panel decorativo -->
+          <div class="panel-deco">
+            <svg class="hex-bg" viewBox="0 0 100 100" fill="none">
+              <polygon points="50,2 93,26 93,74 50,98 7,74 7,26" stroke="white" stroke-width="2" fill="none" />
+              <polygon points="50,12 83,30 83,70 50,88 17,70 17,30" stroke="white" stroke-width="1.5" fill="none" />
+            </svg>
+
+            <div class="deco-top">
+              <span class="sol-icon">⚙️</span>
+              <h3>Sistema de<br />Gestión Solar</h3>
+              <p>Administra clientes, inventario, instalaciones y más desde tu panel corporativo.</p>
+            </div>
+
+            <div class="stats">
+              <div class="stat-item">
+                <span class="stat-icon">📦</span>
+                <div>
+                  <div class="stat-label">Inventario activo</div>
+                  <div class="stat-val">Gestión en tiempo real</div>
+                </div>
+              </div>
+              <div class="stat-item">
+                <span class="stat-icon">📋</span>
+                <div>
+                  <div class="stat-label">Pedidos del día</div>
+                  <div class="stat-val">Seguimiento completo</div>
+                </div>
+              </div>
+              <div class="stat-item">
+                <span class="stat-icon">🔧</span>
+                <div>
+                  <div class="stat-label">Instalaciones</div>
+                  <div class="stat-val">Agenda y reportes</div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </fieldset>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</html>
