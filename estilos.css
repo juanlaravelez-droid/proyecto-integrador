@@ -1,187 +1,108 @@
+/* ============================================================
+   ESTILOS.CSS — Luma Verde / SolarTech
+   Solo contiene estilos realmente usados en index.html
+   Secciones:
+   1. Reset & Variables
+   2. Base
+   3. Navbar
+   4. Encabezado de sección (h1, h2)
+   5. Cards / Tarjetas Bootstrap overrides
+   6. Panel de tipos de panel solar
+   7. Tabla de especificaciones
+   8. Formulario / Validación
+   9. Video
+   10. Footer
+   11. Animaciones
+   ============================================================ */
+
+
+/* ============================================================
+   1. RESET & VARIABLES
+   ============================================================ */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+:root {
+  --verde-oscuro: #034425;
+  --verde-medio:  #047456;
+  --verde-claro:  #c0d0c9;
+  --fondo:        #f4faf6;
+  --blanco:       #ffffff;
+  --texto:        #1a2e25;
+  --texto-suave:  #5a7a6a;
+  --borde:        #d4e4da;
+}
+
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
 body {
-    font-family: Arial, sans-serif;
-
-
-
-}
-/*navbar*/
-.navbar-toggler {
-    border-color: white !important;
-
-}
-/*animacion del icono del menu*/
-/* Fade in al cargar la página */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-h1 {
-    animation: fadeIn 1s ease forwards;
-}
-
-.card {
-    animation: fadeIn 0.8s ease forwards;
-}
-
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-}
-
- /* Tarjetas de stats */
-    .stats-row { display: flex; gap: 1rem; justify-content: center; }
-    .stat-card {
-      background: rgba(255,255,255,0.1);
-      /*border: 1px solid rgba(255,255,255,0.2);*/
-      border-radius: 12px;
-      padding: 0.9rem 1.4rem;
-      text-align: center;
-      backdrop-filter: blur(4px);
-   
-    }
-    .stat-card .num {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: var(--blanco);
-    }
-    .stat-card .lbl {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.65);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .panel-header {
-    background: #034425;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0.5rem 0.5rem;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-  }
-  .eff-badge {
-    display: inline-block;
-    background: #e6f4ec;
-    color: #1a5c33;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 3px 14px;
-    margin-top: 2px;
-  }
-  .icon-solar {
-    font-size: 38px;
-    margin-bottom: 6px;
-    display: block;
-  }
-    
-  .panel-contenido { position: relative; z-index: 1; text-align: center; }
-.panel-izquierdo {
-      width: 55%;
-      background: linear-gradient(155deg, var(--verde-principal) 0%, var(--verde-claro) 100%);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 3rem;
-      overflow: hidden;
-    }
-
-    /* Círculos decorativos de fondo */
-    .panel-izquierdo::before {
-      content: '';
-      position: absolute;
-      width: 420px; height: 420px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.08);
-      top: -80px; left: -80px;
-    }
-    .panel-izquierdo::after {
-      content: '';
-      position: absolute;
-      width: 300px; height: 300px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.08);
-      bottom: -60px; right: -60px;
-    }
-
-    .panel-circulo-extra {
-      position: absolute;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.06);
-      bottom: 80px; left: 40px;
-    }
-h1 {
-    font-family: 'Anton regular', 'Archivo Black', sans-serif;
-    font-size: 2rem;
-    color: #2d6a4f;
-    text-align: center;
-    padding: 20px 10px;
+  font-family: Arial, sans-serif;
+  background-color: var(--fondo);
+  color: var(--texto);
 }
 
 #logo {
-    width: 150px;
-    height: auto;
-    margin: 20px;
-}
-#btn-verde {
-  background-color: #034002;
-  color: white;
-  border-color: #034002;
+  width: 150px;
+  height: auto;
+  margin: 20px;
 }
 
-.btn-verde:hover {
-  background-color: #022901;
-  border-color: #022901;
-}
-#servicios {
-    font: bold 25px;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    gap: 20px;
-    padding: 20px;
+#icono {
+  color: var(--verde-claro);
+  width: 50px;
+  height: auto;
+  margin-left: 5px;
 }
 
-.kit:hover {
-    border-color: #034002;
+
+/* ============================================================
+   3. NAVBAR — override icono hamburguesa blanco
+   ============================================================ */
+.navbar-toggler {
+  border-color: white !important;
 }
-.contacto {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px;
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
-.tarjeta {
-    flex-wrap: wrap;
-    background-color: #c0d0c9;
-    text-align: center;
-    padding: 20px;
-    padding-inline: 10px;
-    border-color: #047456;
-    border-width: 2px;
-    border-style: solid;
-    border-radius: 10px;
+
+
+/* ============================================================
+   4. TÍTULOS
+   ============================================================ */
+h1 {
+  font-family: 'Anton', 'Archivo Black', sans-serif;
+  font-size: 2rem;
+  color: var(--verde-oscuro);
+  text-align: center;
+  padding: 20px 10px;
 }
-.card-body {
-    flex-wrap: wrap;
-    background-color: #add7c5;
-    text-align: center;
-    padding: 20px;
-    padding-inline: 10px;
-    border-width: 1px;
-    border-radius: 9px 9px 10px 10px;
+
+h2 {
+  color: var(--verde-oscuro);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#catalogo {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--verde-oscuro);
+  margin-bottom: 0.8rem;
+}
+
+
+/* ============================================================
+   5. CARDS — override hover (Bootstrap base + animación)
+   ============================================================ */
+.card {
+  animation: fadeIn 0.8s ease forwards;
 }
 
 .card:hover {
@@ -189,134 +110,196 @@ h1 {
   box-shadow: 0 8px 20px rgba(4, 116, 86, 0.3);
 }
 
-#catalogo {
-    padding: 5px;
-    font-size: .75rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: #2d6a4f;
-    margin-bottom: .8rem;
+
+/* ============================================================
+   6. SECCIÓN TIPOS DE PANEL SOLAR
+   ============================================================ */
+.panel-header {
+  background: var(--verde-oscuro);
+  color: var(--blanco);
+  text-align: center;
+  padding: 1rem 0.5rem 0.5rem;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
-#btn_cotizacion {
-    position: absolute;
-    top: 43%;
-    border-radius: 10px;
-    /* Vertical: arriba */
-    left: 85%;
-    /* Horizontal: izquierda */
-    transform: translate(-50%, -50%);
-    /* Centra el botón perfectamente */
+.eff-badge {
+  display: inline-block;
+  background: #e6f4ec;
+  color: #1a5c33;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 3px 14px;
+  margin-top: 2px;
 }
 
-h2 {
-    color: #2d6a4f;
-    margin-bottom: 20px;
-    text-align: center;
+
+/* ============================================================
+   7. TABLA DE ESPECIFICACIONES
+   ============================================================ */
+
+/* Encabezado de sección tabla */
+.header {
+  margin: 32px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
 }
 
-#menu {
-    width: 100%;
-    border-radius: 3px;
-    background-color: #2d6a4f;
-
+.header-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+  margin-top: 4px;
 }
 
-#menu ul {
-    list-style: none;
-    margin: 2px;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+/* Leyenda de colores */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
 }
 
-#menu ul li {
-    flex: 1;
-    text-align: center;
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
 }
 
-#menu ul li a {
-    display: block;
-    padding: 10px 0;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    width: 100%;
+.dot         { width: 10px; height: 10px; border-radius: 50%; }
+.dot-kit     { background: var(--verde-medio); }
+.dot-panel   { background: var(--verde-oscuro); }
+.dot-offgrid { background: #7aab8a; }
+
+/* Contenedor con scroll horizontal en móvil */
+.table-wrap {
+  background: var(--blanco);
+  border-radius: 16px;
+  border: 1.5px solid var(--borde);
+  overflow-x: auto;
+  box-shadow: 0 4px 24px rgba(3, 68, 37, 0.08);
+  margin-bottom: 16px;
 }
 
-#menu ul li a:hover {
-    background-color: #034425;
-}
-#icono {
-    color: #c0d0c9;
-    width: 50px;
-    height: auto;
-    margin-left: 5px;
-}
-ffieldset {
-    background-color: #2d6a4f55;
-    border: 2px solid #2d6a4f;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px auto;
-    width: 100%; /* ✅ cambia 40% por 100% */
-}
-#form {
-   background-color: #2d6a4f55;
-    border: 2px solid #2d6a4f;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px auto;
-    width: 40%;
-}
-#form-control {
-    color: #2d6a4f;
-    border: 1px solid #216647;
-    border-radius: 5px;
-}
- 
-fieldset legend {
-    font-size: 1.5rem;
-    color: #2d6a4f;
-    padding: 0 10px;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 780px;
 }
 
-fieldset li {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    color: #2d6a4f;
+thead tr {
+  background: linear-gradient(135deg, var(--verde-oscuro), var(--verde-medio));
 }
 
-button {
-    background-color: #2d6a4f;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
+thead th {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-size: 1.2rem;
-    color: #2d6a4f;
-}
-video {
-    width: 100%;
-    height: auto;
-    border: 2px solid #2d6a4f;
-    padding: 20px;
-    max-width: 500px;
-    border-radius: 10px;
+tbody tr {
+  border-bottom: 1px solid var(--borde);
+  transition: background 0.15s;
 }
 
-#email:valid {
-    background-color: rgb(4, 30, 34);
+tbody tr:last-child              { border-bottom: none; }
+tbody tr:hover                   { background: #eef6f1; }
+tbody tr:nth-child(even)         { background: #f9fcfa; }
+tbody tr:nth-child(even):hover   { background: #eef6f1; }
+
+td {
+  padding: 14px 16px;
+  font-size: 0.88rem;
+  color: var(--texto);
+  vertical-align: middle;
 }
+
+/* Celda de producto con punto de color */
+.producto-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tipo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.producto-nombre {
+  font-weight: 500;
+  color: var(--verde-oscuro);
+}
+
+/* Badges de eficiencia */
+.badge-eficiencia {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: rgba(4, 116, 86, 0.1);
+  color: var(--verde-medio);
+  border: 1px solid rgba(4, 116, 86, 0.2);
+  white-space: nowrap;
+}
+
+.badge-na {
+  background: rgba(90, 122, 106, 0.08);
+  color: var(--texto-suave);
+  border-color: var(--borde);
+}
+
+/* Badge de ahorro */
+.badge-ahorro {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: #e6f4ec;
+  color: var(--verde-oscuro);
+  border: 1px solid #b8dfc8;
+  white-space: nowrap;
+}
+
+/* Tag de fuente bibliográfica */
+.fuente-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: var(--verde-claro);
+  color: var(--verde-oscuro);
+  font-weight: 500;
+}
+
+
+/* ============================================================
+   8. FORMULARIO — validación HTML5 + fieldset personalizado
+   ============================================================ */
+fieldset {
+  background-color: #2d6a4f22;
+  border: 2px solid #2d6a4f;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 100%;
+}
+
 input:user-valid {
   border: 2px solid rgb(0, 128, 73);
   border-radius: 3px;
@@ -326,8 +309,41 @@ input:user-valid + span::before {
   content: "✓";
   color: green;
 }
+
 input:invalid {
   border: 2px solid rgb(255, 0, 0);
   border-radius: 3px;
 }
 
+
+/* ============================================================
+   9. VIDEO
+   ============================================================ */
+video {
+  width: 100%;
+  height: auto;
+  border: 2px solid #2d6a4f;
+  padding: 20px;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+
+/* ============================================================
+   10. FOOTER — label override para newsletter
+       (solo anula display:block que conflictuaría con Bootstrap)
+   ============================================================ */
+footer .form-label {
+  display: inline-block;
+}
+
+
+/* ============================================================
+   11. ANIMACIONES
+   ============================================================ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h1 { animation: fadeIn 1s ease forwards; }
