@@ -27,13 +27,16 @@
 
 :root {
   --verde-oscuro: #034425;
-  --verde-medio:  #047456;
-  --verde-claro:  #c0d0c9;
+  --verde-medio:  #04740f;
+  --verde-claro:  #9ed09f;
   --fondo:        #f4faf6;
   --blanco:       #ffffff;
   --texto:        #1a2e25;
   --texto-suave:  #5a7a6a;
-  --borde:        #d4e4da;
+  --borde:        #0d9740;
+  --verde-suave:   #e6f4ec;
+  --amarillo-soleado: #efd211;
+  --verde-suave-2: #d2ead6;
 }
 
 
@@ -170,10 +173,14 @@ h2 {
   color: var(--texto-suave);
 }
 
-.dot         { width: 10px; height: 10px; border-radius: 50%; }
-.dot-kit     { background: var(--verde-medio); }
-.dot-panel   { background: var(--verde-oscuro); }
-.dot-offgrid { background: #7aab8a; }
+.dot {
+     width: 10px; height: 10px; border-radius: 50%; }
+.dot-kit{ 
+    background: var(--verde-medio); }
+.dot-panel{
+    background: var(--verde-claro); }
+.dot-offgrid { 
+    background: var(--amarillo-soleado); }
 
 /* Contenedor con scroll horizontal en móvil */
 .table-wrap {
