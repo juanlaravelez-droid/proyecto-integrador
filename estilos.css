@@ -181,7 +181,11 @@ h2 {
 .btn-flotante i { font-size: 1.1rem; }
 
 .icon-mobile {
-  display: none;
+  display: none !important;
+}
+
+.icon-desktop {
+  display: inline !important;
 }
 
 @media (max-width: 768px) {
@@ -197,15 +201,15 @@ h2 {
   }
 
   .btn-flotante .btn-texto {
-    display: none;
+    display: none !important;
   }
 
   .icon-desktop {
-    display: none;
+    display: none !important;
   }
 
   .icon-mobile {
-    display: inline;
+    display: inline !important;
   }
 
   .btn-flotante i {
