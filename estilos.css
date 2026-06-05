@@ -179,6 +179,32 @@ h2 {
 }
 
 .btn-flotante i { font-size: 1.1rem; }
+
+@media (max-width: 768px) {
+  .btn-flotante {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    gap: 6px;
+    margin-top: 18px;
+  }
+
+  .btn-flotante i {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-flotante {
+    padding: 8px 16px;
+    font-size: 0.75rem;
+    gap: 5px;
+    margin-top: 12px;
+  }
+
+  .btn-flotante i {
+    font-size: 0.8rem;
+  }
+}
 /* ============================================================
    6. SECCIÓN TIPOS DE PANEL SOLAR
    ============================================================ */
