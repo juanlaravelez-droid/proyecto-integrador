@@ -28,17 +28,17 @@
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "[Dirección]",
-        "addressLocality": "[Ciudad]",
+        "addressLocality": "[medellín]",
         "addressCountry": "CO"
       },
-      "telephone": "[Teléfono]",
+      "telephone": "[320 654 8796]",
       "url": "https://lumaverde.com",
       "image": "img/logo.png"
     }
   </script>
 </head>
 
-<body>
+<body style=" background: linear-gradient(to bottom, rgba(187, 255, 218, 0.35) 0%, rgba(255, 255, 255, 0.6) 100%);">
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #034425;">
   <div class="container-fluid">
@@ -70,28 +70,35 @@
   </div>
 </nav>
 
-<!-- Hero Section with Banner -->
+<!-- ═══ HERO / BANNER ════════════════════════════════════ -->
 <section id="inicio">
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="img/banner1.png" class="d-block w-100" alt="Banner promocional 1 - Energía solar">
-      </div>
-      <div class="carousel-item">
-        <img src="img/banner2.png" class="d-block w-100" alt="Banner promocional 2 - Soluciones solares">
-      </div>
-      <div class="carousel-item">
-        <img src="img/banner3.png" class="d-block w-100" alt="Banner promocional 3 - Paneles solares">
+  <div style="position: relative;">
+    <div id="carouselBanner" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/banner1.png" class="d-block w-100" alt="Energía solar residencial">
+        </div>
+        <div class="carousel-item">
+          <img src="img/banner2.png" class="d-block w-100" alt="Instalación de paneles">
+        </div>
+        <div class="carousel-item">
+          <img src="img/banner3.png" class="d-block w-100" alt="Sistema solar">
+        </div>
       </div>
     </div>
-  </div>
+    <div class="carousel-overlay"></div>
 
-  <div class="container py-5">
-    <h1 class="text-center" style="color: #034425;">Ilumina tu hogar con el poder del<br>sol</h1>
+    <div class="hero-texto">
+      <h1>Ilumina tu hogar<br>con el poder del sol</h1>
+      <a href="logininicio.html" class="btn-flotante">
+        <i class="bi bi-box-arrow-in-right"></i> Iniciar sesión
+      </a>
+    </div>
+
   </div>
 </section>
 
-<!-- Products Section -->
+<!-- Productos -->
 <section id="productos" class="py-5">
   <div class="container">
     <div class="row g-3">
@@ -232,7 +239,7 @@
     <!-- Statistics -->
     <div class="row g-3 text-center mb-5">
       <div class="col-6 col-md-3">
-        <div class="p-4 rounded" style="background-color: #034425; color: white; border-radius: 10px !important;">
+        <div class="p-4 rounded" style="box-shadow: 5px 4px 6px rgba(36, 26, 1, 0.1); background-color: #034425; color: white; border-radius: 10px !important;">
           <h3 class="fw-bold mb-0">+500</h3>
           <p class="mb-0" style="font-size: 0.85rem;">Instalaciones realizadas</p>
         </div>

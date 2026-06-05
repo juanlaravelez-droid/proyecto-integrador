@@ -1,171 +1,599 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="estilos.css">
+  <title>Inicio — Luma Verde</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&display=swap" rel="stylesheet">
-  <title>luma verde</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=DM+Sans:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+  <!-- Estilos compartidos del proyecto -->
+  <link rel="stylesheet" href="estilos.css">
+
+  <style>
+    /* =============================================
+       ESTILOS PROPIOS DE loginInicio.html
+       Variables heredadas de estilos.css
+    ============================================= */
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--fondo);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO / BANNER ────────────────────────── */
+    #inicio {
+      position: relative;
+    }
+
+    #inicio .carousel-item img {
+      max-height: 480px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    /* Overlay oscuro sobre el carousel */
+    .carousel-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(3,68,37,0.35) 0%, rgba(3,68,37,0.6) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-texto {
+      position: absolute;
+      bottom: 32px;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-texto h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: var(--blanco);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      letter-spacing: 0.03em;
+      padding: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    /* ── PANEL IZQUIERDO (stats) ─────────────── */
+    .panel-izquierdo {
+      width: 100%;
+      background: linear-gradient(145deg, var(--verde-oscuro) 0%, var(--verde-medio) 100%);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem 2rem;
+      overflow: hidden;
+      min-height: 320px;
+    }
+
+    /* Círculos decorativos */
+    .panel-izquierdo::before {
+      content: '';
+      position: absolute;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.07);
+      top: -100px; left: -100px;
+      pointer-events: none;
+    }
+    .panel-izquierdo::after {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.07);
+      bottom: -60px; right: -60px;
+      pointer-events: none;
+    }
+
+    .panel-circulo-extra {
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.05);
+      bottom: 60px; left: 30px;
+      pointer-events: none;
+    }
+
+    .panel-contenido {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      width: 100%;
+    }
+
+    .panel-subtitulo {
+      color: rgba(255,255,255,0.8);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    /* Stats dentro del panel izquierdo */
+    .stats-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 12px;
+      padding: 0.9rem 1.4rem;
+      text-align: center;
+      backdrop-filter: blur(4px);
+      min-width: 90px;
+      transition: transform 0.2s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .stat-card .num {
+      font-family: 'Archivo Black', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--blanco);
+    }
+
+    .stat-card .lbl {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 2px;
+    }
+
+    @keyframes rotar {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* ── PANEL DERECHO (login form) ──────────── */
+    .panel-derecho {
+      background: #0d1f16;
+      border: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    /* Fondo con grid */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(4,116,86,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(4,116,86,0.06) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bg-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(4,116,86,0.1) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 560px;
+    }
+
+    /* Panel formulario */
+    .panel-form {
+      flex: 1;
+      min-width: 300px;
+      padding: 52px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .form-header {
+      margin-bottom: 32px;
+    }
+
+    .rol-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(4,116,86,0.18);
+      border: 1px solid rgba(4,116,86,0.35);
+      border-radius: 50px;
+      padding: 5px 16px;
+      font-size: 0.78rem;
+      color: #5ecf95;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .form-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      color: #e8f2ed;
+      margin-bottom: 4px;
+    }
+
+    .form-header p {
+      font-size: 0.88rem;
+      color: #7aab8a;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #7aab8a;
+      margin-bottom: 7px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-wrap .icon {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.95rem;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .input-wrap input,
+    .select-wrap select {
+      width: 100%;
+      padding: 12px 14px 12px 40px;
+      border: 1.5px solid #1e3d2a;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      color: #e8f2ed;
+      background: #152b1e;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .select-wrap select {
+      padding-left: 14px;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .select-wrap {
+      position: relative;
+    }
+
+    .select-wrap::after {
+      content: '▾';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #7aab8a;
+      pointer-events: none;
+    }
+
+    .input-wrap input::placeholder { color: #3a6048; }
+
+    .input-wrap input:focus,
+    .select-wrap select:focus {
+      border-color: var(--verde-medio);
+      box-shadow: 0 0 0 3px rgba(4,116,86,0.15);
+    }
+
+    .select-wrap select option {
+      background: #0d1f16;
+    }
+
+    .row-extra {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 24px;
+    }
+
+    .link-forgot {
+      font-size: 0.85rem;
+      color: #5ecf95;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .link-forgot:hover { text-decoration: underline; }
+
+    .btn-login {
+      width: 100%;
+      padding: 13px;
+      background: linear-gradient(135deg, var(--verde-medio), var(--verde-oscuro));
+      color: var(--blanco);
+      border: none;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn-login:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(4,116,86,0.4);
+    }
+
+    .btn-login:active { transform: translateY(0); }
+
+    /* Panel decorativo derecho */
+    .panel-deco {
+      width: 38%;
+      padding: 48px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hex-bg {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 260px; height: 260px;
+      opacity: 0.04;
+    }
+
+    .deco-top {
+      position: relative;
+      z-index: 2;
+    }
+
+
+    .deco-top h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #e8f2ed;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .deco-top p {
+      font-size: 0.82rem;
+      color: #7aab8a;
+      line-height: 1.65;
+    }
+
+    .stats {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 14px;
+      background: rgba(4,116,86,0.1);
+      border: 1px solid rgba(4,116,86,0.22);
+      border-radius: 10px;
+      transition: background 0.2s;
+    }
+
+    .stat-item:hover {
+      background: rgba(4,116,86,0.18);
+    }
+
+    .stat-icon { font-size: 1.3rem; }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: #7aab8a;
+      margin-bottom: 2px;
+    }
+
+    .stat-val {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #e8f2ed;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 768px) {
+      .panel-deco { display: none; }
+      .panel-form { padding: 36px 24px; }
+    }
+  </style>
 </head>
 
 <body>
-  <div id="inicio">
-    <div id="banner">
+
+  <!-- ═══ HERO / BANNER ═══════════════════════════════════ -->
+  <section id="inicio">
+    <div style="position: relative;">
       <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="img/banner1.png" class="d-block w-100" alt="...">
+            <img src="img/banner1.png" class="d-block w-100" alt="Energía solar residencial">
           </div>
           <div class="carousel-item">
-            <img src="img/banner2.png" class="d-block w-100" alt="...">
+            <img src="img/banner2.png" class="d-block w-100" alt="Instalación de paneles">
           </div>
           <div class="carousel-item">
-            <img src="img/banner3.png" class="d-block w-100" alt="...">
+            <img src="img/banner3.png" class="d-block w-100" alt="Sistema solar">
           </div>
         </div>
       </div>
+      <!-- Overlay + texto sobre el carousel -->
+      <div class="carousel-overlay"></div>
+      <div class="hero-texto">
+        <h1>Ilumina tu hogar<br>con el poder del sol</h1>
+      </div>
     </div>
-    <div>
-      <h1>Ilumina tu hogar
-        con el poder del
-        sol</h1>
-    </div>
-    <div class="panel-izquierdo">
-      <div class="panel-circulo-extra"></div>
-      <i class="bi bi-sun sol-icono"></i>
+  </section>
 
-      <div class="panel-contenido">
-        <div class="panel-logo">
-          <i class="bi bi-lightning-charge-fill"></i>
+  <!-- ═══ PANEL IZQUIERDO — STATS ═════════════════════════ -->
+  <div class="panel-izquierdo">
+    <div class="panel-circulo-extra"></div>
+
+    <div class="panel-contenido">
+      <p class="panel-subtitulo">
+        Sistema de gestión de inventario y ventas<br>
+        de paneles solares. Energía limpia, control total.
+      </p>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="num">+320</div>
+          <div class="lbl">Clientes</div>
         </div>
-        <p class="panel-subtitulo">
-          Sistema de gestión de inventario y ventas<br>
-          de paneles solares. Energía limpia, control total.
-        </p>
-
-        <div class="stats-row">
-          <div class="stat-card">
-            <div class="num">+320</div>
-            <div class="lbl">Clientes</div>
-          </div>
-          <div class="stat-card">
-            <div class="num">98%</div>
-            <div class="lbl">Satisfacción</div>
-          </div>
-          <div class="stat-card">
-            <div class="num">500 kW</div>
-            <div class="lbl">Instalados</div>
-          </div>
+        <div class="stat-card">
+          <div class="num">98%</div>
+          <div class="lbl">Satisfacción</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">500 kW</div>
+          <div class="lbl">Instalados</div>
         </div>
       </div>
     </div>
+  </div>
 
-    <fieldset class="panel-derecho">
-      <div class="login-box">
+  <!-- ═══ PANEL DERECHO — LOGIN EMPLEADO ══════════════════ -->
+  <div class="panel-derecho position-relative overflow-hidden">
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
 
-        <div class="login-encabezado">
-          <h2>Bienvenido de vuelta</h2>
-          <p>Inicia sesión para acceder al sistema</p>
+    <div class="wrapper">
+
+      <!-- Formulario -->
+      <div class="panel-form">
+        <div class="form-header">
+          <div class="rol-chip">🧑‍💼 Acceso Empleado</div>
+          <h2>Panel Interno</h2>
+          <p>Ingresa tus credenciales corporativas</p>
         </div>
 
-        <div class="bg-grid"></div>
-        <div class="bg-glow"></div>
-
-        <div class="wrapper">
-          <!-- Panel formulario -->
-          <div class="panel-form">
-            <div class="form-header">
-              <div class="rol-chip">🧑‍💼 Acceso Empleado</div>
-              <h2>Panel Interno</h2>
-              <p>Ingresa tus credenciales corporativas</p>
-            </div>
-
-            <div class="form-group">
-              <label for="usuario">ID de empleado</label>
-              <div class="input-wrap">
-                <span class="icon">🪪</span>
-                <input type="text" id="usuario" placeholder="EMP-00123" />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="area">Área / Departamento</label>
-              <div class="select-wrap">
-                <select id="area">
-                  <option value="" disabled selected>Selecciona tu área</option>
-                  <option>Ventas</option>
-                  <option>Instalaciones</option>
-                  <option>Inventario</option>
-                  <option>Administración</option>
-                  <option>Soporte Técnico</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="pass">Contraseña</label>
-              <div class="input-wrap">
-                <span class="icon">🔒</span>
-                <input type="password" id="pass" placeholder="••••••••" />
-              </div>
-            </div>
-
-            <div class="row-extra">
-              <a href="#" class="link-forgot">¿Olvidaste tu contraseña?</a>
-            </div>
-
-            <button class="btn-login">Ingresar al sistema</button>
+        <div class="form-group">
+          <label for="usuario">ID de empleado</label>
+          <div class="input-wrap">
+            <span class="icon">🪪</span>
+            <input type="text" id="usuario" placeholder="EMP-00123" autocomplete="username">
           </div>
+        </div>
 
-          <!-- Panel decorativo -->
-          <div class="panel-deco">
-            <svg class="hex-bg" viewBox="0 0 100 100" fill="none">
-              <polygon points="50,2 93,26 93,74 50,98 7,74 7,26" stroke="white" stroke-width="2" fill="none" />
-              <polygon points="50,12 83,30 83,70 50,88 17,70 17,30" stroke="white" stroke-width="1.5" fill="none" />
-            </svg>
+        <div class="form-group">
+          <label for="area">Área / Departamento</label>
+          <div class="select-wrap">
+            <select id="area" name="area">
+              <option value="" disabled selected>Selecciona tu área</option>
+              <option value="ventas">Ventas</option>
+              <option value="instalaciones">Instalaciones</option>
+              <option value="inventario">Inventario</option>
+              <option value="admin">Administración</option>
+              <option value="soporte">Soporte Técnico</option>
+            </select>
+          </div>
+        </div>
 
-            <div class="deco-top">
-              <span class="sol-icon">⚙️</span>
-              <h3>Sistema de<br />Gestión Solar</h3>
-              <p>Administra clientes, inventario, instalaciones y más desde tu panel corporativo.</p>
-            </div>
+        <div class="form-group">
+          <label for="pass">Contraseña</label>
+          <div class="input-wrap">
+            <span class="icon">🔒</span>
+            <input type="password" id="pass" placeholder="••••••••" autocomplete="current-password">
+          </div>
+        </div>
 
-            <div class="stats">
-              <div class="stat-item">
-                <span class="stat-icon">📦</span>
-                <div>
-                  <div class="stat-label">Inventario activo</div>
-                  <div class="stat-val">Gestión en tiempo real</div>
-                </div>
-              </div>
-              <div class="stat-item">
-                <span class="stat-icon">📋</span>
-                <div>
-                  <div class="stat-label">Pedidos del día</div>
-                  <div class="stat-val">Seguimiento completo</div>
-                </div>
-              </div>
-              <div class="stat-item">
-                <span class="stat-icon">🔧</span>
-                <div>
-                  <div class="stat-label">Instalaciones</div>
-                  <div class="stat-val">Agenda y reportes</div>
-                </div>
-              </div>
+        <div class="row-extra">
+          <a href="#" class="link-forgot">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <button class="btn-login" type="submit">Ingresar al sistema</button>
+      </div>
+
+      <!-- Panel decorativo -->
+      <div class="panel-deco">
+        <svg class="hex-bg" viewBox="0 0 100 100" fill="none">
+          <polygon points="50,2 93,26 93,74 50,98 7,74 7,26" stroke="white" stroke-width="2" fill="none"/>
+          <polygon points="50,12 83,30 83,70 50,88 17,70 17,30" stroke="white" stroke-width="1.5" fill="none"/>
+        </svg>
+
+        <div class="deco-top">
+          <h3>Sistema de<br>Gestión Solar</h3>
+          <p>Administra clientes, inventario, instalaciones y más desde tu panel corporativo.</p>
+        </div>
+
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-icon">📦</span>
+            <div>
+              <div class="stat-label">Inventario activo</div>
+              <div class="stat-val">Gestión en tiempo real</div>
             </div>
           </div>
-    </fieldset>
+          <div class="stat-item">
+            <span class="stat-icon">📋</span>
+            <div>
+              <div class="stat-label">Pedidos del día</div>
+              <div class="stat-val">Seguimiento completo</div>
+            </div>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">🔧</span>
+            <div>
+              <div class="stat-label">Instalaciones</div>
+              <div class="stat-val">Agenda y reportes</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    </div><!-- /wrapper -->
+  </div><!-- /panel-derecho -->
 
-
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
 </html>

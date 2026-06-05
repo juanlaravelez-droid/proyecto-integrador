@@ -112,8 +112,73 @@ h2 {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(4, 116, 86, 0.3);
 }
+/* ============================================================
+   BANNER / CAROUSEL HERO
+   ============================================================ */
 
+/* Altura máxima de las imágenes del carousel */
+.carousel-item img {
+  max-height: 480px;
+  object-fit: cover;
+  width: 100%;
+}
 
+/* Overlay oscuro sobre el carousel */
+.carousel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(3,68,37,0.35) 0%,
+    rgba(3,68,37,0.6) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Texto encima del carousel */
+.hero-texto {
+  position: absolute;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-texto h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--blanco);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  letter-spacing: 0.03em;
+  padding: 0;
+}
+.btn-flotante {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 14px 32px;
+  background: rgba(255,255,255,0.15);
+  color: var(--blanco);
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid rgba(255,255,255,0.7);
+  border-radius: 50px;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  letter-spacing: 0.04em;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-flotante:hover {
+  background: var(--verde-medio);
+  border-color: var(--verde-medio);
+  color: var(--blanco);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.btn-flotante i { font-size: 1.1rem; }
 /* ============================================================
    6. SECCIÓN TIPOS DE PANEL SOLAR
    ============================================================ */
@@ -126,6 +191,13 @@ h2 {
   font-weight: 500;
   letter-spacing: 0.02em;
 }
+  .carousel-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(3,68,37,0.35) 0%, rgba(3,68,37,0.6) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
 
 .eff-badge {
   display: inline-block;
