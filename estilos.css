@@ -181,11 +181,14 @@ h2 {
 .btn-flotante i { font-size: 1.1rem; }
 
 .icon-mobile {
-  display: none !important;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  position: absolute;
 }
 
 .icon-desktop {
-  display: inline !important;
+  visibility: visible;
 }
 
 @media (max-width: 768px) {
@@ -201,15 +204,22 @@ h2 {
   }
 
   .btn-flotante .btn-texto {
-    display: none !important;
+    visibility: hidden;
+    width: 0;
+    position: absolute;
   }
 
   .icon-desktop {
-    display: none !important;
+    visibility: hidden;
+    width: 0;
+    position: absolute;
   }
 
   .icon-mobile {
-    display: inline !important;
+    visibility: visible;
+    width: auto;
+    height: auto;
+    position: static;
   }
 
   .btn-flotante i {
